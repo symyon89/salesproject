@@ -2,6 +2,7 @@ package ItemOptions;
 
 import ReadWriteFiles.OptionReadWrite;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Size implements Option<String> {
@@ -32,6 +33,10 @@ public class Size implements Option<String> {
         return sizeMap.get(sku);
     }
 
+    @Override
+    public Map<String, String> getList() {
+        return new HashMap<>(sizeMap);
+    }
 
     public static Option<String> getInstance() {
         return size;

@@ -2,6 +2,7 @@ package ItemOptions;
 
 import ReadWriteFiles.OptionReadWrite;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Manufacturer implements Option<String> {
@@ -30,6 +31,11 @@ public class Manufacturer implements Option<String> {
     @Override
     public String read(String sku) {
         return manufacturerMap.get(sku);
+    }
+
+    @Override
+    public Map<String, String> getList() {
+        return new HashMap<>(manufacturerMap);
     }
 
     public static Option<String> getInstance() {

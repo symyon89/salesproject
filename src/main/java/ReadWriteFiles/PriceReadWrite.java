@@ -1,6 +1,7 @@
 package ReadWriteFiles;
 
 import BussinessExceptions.InvaildEndDateException;
+import BussinessExceptions.InvalidPriceException;
 import ItemOptions.Price;
 
 import java.io.IOException;
@@ -24,17 +25,35 @@ public class PriceReadWrite {
                                 list.put(line[0], new Price()
                                         .setPrice(Double.parseDouble(line[1]), Double.parseDouble(line[2]),
                                                 LocalDate.parse(line[3]), LocalDate.parse(line[4])));
-                            } catch (InvaildEndDateException e) {
+                            } catch (InvaildEndDateException | InvalidPriceException e) {
                                 System.out.println(e.getMessage());
                             }
                         }else {
-                            list.put(line[0], new Price().setPrice(Double.parseDouble(line[1])));
+                            try {
+                                list.put(line[0], new Price().setPrice(Double.parseDouble(line[1])));
+                            } catch (InvalidPriceException e) {
+                                System.out.println(e.getMessage());
+                            }
                         }
                     });
         } catch (IOException e) {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static void saveFile(Map<String,Price> listToSave){
+
+        Iterable<String> iterable = listToSave.keySet()
+                .stream()
+                .map(key -> key + "," +listToSave.get(key).getPriceToWriteOnFile())
+                .toList();
+
+        try {
+            Files.write(Path.of(PRICETXT),iterable);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

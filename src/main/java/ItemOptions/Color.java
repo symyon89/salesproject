@@ -2,6 +2,7 @@ package ItemOptions;
 
 import ReadWriteFiles.OptionReadWrite;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Color implements Option<String> {
@@ -32,9 +33,14 @@ public class Color implements Option<String> {
         return colorMap.get(sku);
     }
 
+    @Override
+    public Map<String, String> getList() {
+        return new HashMap<>(colorMap);
+    }
 
     public static Option<String> getInstance() {
         return color;
     }
+
 
 }
