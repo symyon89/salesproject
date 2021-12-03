@@ -1,5 +1,6 @@
-package ItemOptions;
+package ProductOptions;
 
+import BussinessExceptions.InvalidSkuException;
 import ReadWriteFiles.PriceReadWrite;
 
 import java.util.HashMap;
@@ -15,7 +16,8 @@ public class PriceList implements Option<Price> {
     }
 
     @Override
-    public void create(String sku, Price price) {
+    public void create(String sku, Price price) throws InvalidSkuException {
+        checkIfSkuIsUnique(sku);
         prices.put(sku, price);
     }
 
@@ -41,6 +43,11 @@ public class PriceList implements Option<Price> {
 
     public static Option<Price> getInstance() {
         return price;
+    }
+    private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
+        if (prices.containsKey(sku)) {
+            throw new InvalidSkuException();
+        }
     }
 
 }

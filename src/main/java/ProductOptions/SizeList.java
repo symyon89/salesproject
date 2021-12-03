@@ -1,21 +1,23 @@
-package ItemOptions;
+package ProductOptions;
 
+import BussinessExceptions.InvalidSkuException;
 import ReadWriteFiles.OptionReadWrite;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Size implements Option<String> {
+public class SizeList implements Option<String> {
     private final Map<String, String> sizeMap;
-    private final static Option<String> size = new Size();
+    private final static Option<String> size = new SizeList();
 
-    private Size() {
+    private SizeList() {
         sizeMap = OptionReadWrite.readFile(OptionType.Size);
     }
 
     @Override
-    public void create(String sku, String size) {
-    sizeMap.put(sku, size);
+    public void create(String sku, String size) throws InvalidSkuException {
+        checkIfSkuIsUnique(sku);
+        sizeMap.put(sku, size);
     }
 
     @Override
@@ -40,5 +42,11 @@ public class Size implements Option<String> {
 
     public static Option<String> getInstance() {
         return size;
+    }
+
+    private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
+        if (sizeMap.containsKey(sku)) {
+            throw new InvalidSkuException();
+        }
     }
 }

@@ -1,4 +1,4 @@
-package ItemOptions;
+package ProductOptions;
 
 public enum OptionType {
     Color,

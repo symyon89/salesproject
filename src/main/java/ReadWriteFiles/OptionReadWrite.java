@@ -1,6 +1,6 @@
 package ReadWriteFiles;
 
-import ItemOptions.OptionType;
+import ProductOptions.OptionType;
 
 import java.io.IOException;
 import java.nio.file.Files;

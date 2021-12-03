@@ -1,20 +1,22 @@
-package ItemOptions;
+package ProductOptions;
 
+import BussinessExceptions.InvalidSkuException;
 import ReadWriteFiles.OptionReadWrite;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Color implements Option<String> {
+public class ColorList implements Option<String> {
     private final Map<String, String> colorMap;
-    private final static Option<String> color = new Color();
+    private final static Option<String> color = new ColorList();
 
-    private Color() {
+    private ColorList() {
         colorMap = OptionReadWrite.readFile(OptionType.Color);
     }
 
     @Override
-    public void create(String sku, String color) {
+    public void create(String sku, String color) throws InvalidSkuException {
+        checkIfSkuIsUnique(sku);
         colorMap.put(sku, color);
     }
 
@@ -42,5 +44,10 @@ public class Color implements Option<String> {
         return color;
     }
 
+    private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
+        if (colorMap.containsKey(sku)){
+            throw new InvalidSkuException();
+        }
+    }
 
 }

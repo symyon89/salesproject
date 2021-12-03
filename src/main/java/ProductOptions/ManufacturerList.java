@@ -1,20 +1,22 @@
-package ItemOptions;
+package ProductOptions;
 
+import BussinessExceptions.InvalidSkuException;
 import ReadWriteFiles.OptionReadWrite;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Manufacturer implements Option<String> {
+public class ManufacturerList implements Option<String> {
     private final Map<String, String> manufacturerMap;
-    private final static Option<String> manufacturer = new Manufacturer();
+    private final static Option<String> manufacturer = new ManufacturerList();
 
-    private Manufacturer() {
+    private ManufacturerList() {
         manufacturerMap = OptionReadWrite.readFile(OptionType.Manufacturer);
     }
 
     @Override
-    public void create(String sku, String manufacturer) {
+    public void create(String sku, String manufacturer) throws InvalidSkuException {
+        checkIfSkuIsUnique(sku);
         manufacturerMap.put(sku, manufacturer);
     }
 
@@ -40,5 +42,11 @@ public class Manufacturer implements Option<String> {
 
     public static Option<String> getInstance() {
         return manufacturer;
+    }
+
+    private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
+        if (manufacturerMap.containsKey(sku)) {
+            throw new InvalidSkuException();
+        }
     }
 }
