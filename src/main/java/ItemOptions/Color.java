@@ -1,15 +1,15 @@
-package ProductOptions;
+package ItemOptions;
 
-import ReadWriteFiles.FileReadWrite;
+import ReadWriteFiles.OptionReadWrite;
 
 import java.util.Map;
 
-public class Color implements Option {
+public class Color implements Option<String> {
     private final Map<String, String> colorMap;
-    private final static Option color = new Color();
+    private final static Option<String> color = new Color();
 
     private Color() {
-        colorMap = FileReadWrite.readFile(OptionType.Color);
+        colorMap = OptionReadWrite.readFile(OptionType.Color);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Color implements Option {
     }
 
 
-    public static Option getInstance() {
+    public static Option<String> getInstance() {
         return color;
     }
 

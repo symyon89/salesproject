@@ -1,6 +1,6 @@
 package ReadWriteFiles;
 
-import ProductOptions.OptionType;
+import ItemOptions.OptionType;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FileReadWrite {
+public class OptionReadWrite {
     private static final String COLORTXT = "src/main/java/resources/ColorList.txt";
     private static final String SIZETXT = "src/main/java/resources/SizeList.txt";
     private static final String MANUFACTURERTXT = "src/main/java/resources/ManufacturerList.txt";
@@ -18,7 +18,7 @@ public class FileReadWrite {
         Map<String, String> list = new HashMap<>();
         try {
             Files.lines(Path.of(txt))
-                    .map(colorDetails -> colorDetails.split(","))
+                    .map(details -> details.split(","))
                     .forEach(line -> list.put(line[0], line[1]));
         } catch (IOException e) {
             e.printStackTrace();

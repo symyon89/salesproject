@@ -1,15 +1,15 @@
-package ProductOptions;
+package ItemOptions;
 
-import ReadWriteFiles.FileReadWrite;
+import ReadWriteFiles.OptionReadWrite;
 
 import java.util.Map;
 
-public class Manufacturer implements Option {
+public class Manufacturer implements Option<String> {
     private final Map<String, String> manufacturerMap;
-    private final static Option manufacturer = new Manufacturer();
+    private final static Option<String> manufacturer = new Manufacturer();
 
     private Manufacturer() {
-        manufacturerMap = FileReadWrite.readFile(OptionType.Manufacturer);
+        manufacturerMap = OptionReadWrite.readFile(OptionType.Manufacturer);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Manufacturer implements Option {
         return manufacturerMap.get(sku);
     }
 
-    public static Option getInstance() {
+    public static Option<String> getInstance() {
         return manufacturer;
     }
 }

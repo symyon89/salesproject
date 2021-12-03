@@ -1,15 +1,15 @@
-package ProductOptions;
+package ItemOptions;
 
-import ReadWriteFiles.FileReadWrite;
+import ReadWriteFiles.OptionReadWrite;
 
 import java.util.Map;
 
-public class Size implements Option {
+public class Size implements Option<String> {
     private final Map<String, String> sizeMap;
-    private final static Option size = new Size();
+    private final static Option<String> size = new Size();
 
     private Size() {
-        sizeMap = FileReadWrite.readFile(OptionType.Size);
+        sizeMap = OptionReadWrite.readFile(OptionType.Size);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Size implements Option {
     }
 
 
-    public static Option getInstance() {
+    public static Option<String> getInstance() {
         return size;
     }
 }
