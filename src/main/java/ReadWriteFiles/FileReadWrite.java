@@ -28,6 +28,7 @@ public class FileReadWrite {
     public static void saveFile(Map<String,String> listToSave,OptionType type){
         String txt = selectFileType(type);
         Iterable<String> iterable = listToSave.keySet().stream().map(key -> key + "," +listToSave.get(key)).toList();
+
         try {
             Files.write(Path.of(txt),iterable);
         } catch (IOException e) {
