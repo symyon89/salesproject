@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class PriceList implements Option<Price> {
 
-    private final Map<String,Price> prices;
+    private final Map<String, Price> prices;
     private final static Option<Price> price = new PriceList();
 
     private PriceList() {
@@ -44,10 +44,15 @@ public class PriceList implements Option<Price> {
     public static Option<Price> getInstance() {
         return price;
     }
+
     private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
         if (prices.containsKey(sku)) {
             throw new InvalidSkuException();
         }
     }
 
+    @Override
+    public void saveChanges() {
+        PriceReadWrite.saveFile(prices);
+    }
 }

@@ -49,4 +49,9 @@ public class ItemList implements Option<Item> {
             throw new InvalidSkuException();
         }
     }
+
+    @Override
+    public void saveChanges() {
+        ItemReadWrite.saveFile(items);
+    }
 }

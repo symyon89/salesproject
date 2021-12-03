@@ -13,7 +13,7 @@ public class Price {
 
 
     public Price setPrice(double price, double discountedPrice, LocalDate startDate, LocalDate endDate) throws InvaildEndDateException, InvalidPriceException {
-        checkDate(startDate,endDate);
+        checkDate(startDate, endDate);
         checkIfPriceIsGreaterThanZero(price);
         checkIfPriceIsGreaterThanZero(discountedPrice);
         this.price = price;
@@ -33,8 +33,8 @@ public class Price {
         return checkIfHasDiscountedPrice();
     }
 
-    public String getPriceToWriteOnFile(){
-        if (discountedPrice == 0){
+    public String getPriceToWriteOnFile() {
+        if (discountedPrice == 0) {
             return String.valueOf(this.price);
         }
         return this.price + "," + this.discountedPrice + "," + this.startDate + "," + this.endDate;
@@ -42,19 +42,19 @@ public class Price {
     }
 
     private void checkDate(LocalDate startDate, LocalDate endDate) throws InvaildEndDateException {
-        if (startDate.isAfter(endDate)){
+        if (startDate.isAfter(endDate)) {
             throw new InvaildEndDateException();
         }
     }
 
     private void checkIfPriceIsGreaterThanZero(double price) throws InvalidPriceException {
-        if (price < 0){
+        if (price < 0) {
             throw new InvalidPriceException();
         }
     }
 
     private double checkIfHasDiscountedPrice() {
-        if(discountedPrice == 0){
+        if (discountedPrice == 0) {
             return this.price;
         } else {
             return checkPriceByDate();
@@ -62,10 +62,10 @@ public class Price {
     }
 
     private double checkPriceByDate() {
-        if (LocalDate.now().isBefore(startDate)){
+        if (LocalDate.now().isBefore(startDate)) {
             return this.price;
         }
-        if (LocalDate.now().isBefore(endDate)){
+        if (LocalDate.now().isBefore(endDate)) {
             return this.price;
         }
         return this.discountedPrice;

@@ -26,20 +26,20 @@ public class OptionReadWrite {
         return list;
     }
 
-    public static void saveFile(Map<String,String> listToSave,OptionType type){
+    public static void saveFile(Map<String, String> listToSave, OptionType type) {
         String txt = selectFileType(type);
-        Iterable<String> iterable = listToSave.keySet().stream().map(key -> key + "," +listToSave.get(key)).toList();
+        Iterable<String> iterable = listToSave.keySet().stream().map(key -> key + "," + listToSave.get(key)).toList();
 
         try {
-            Files.write(Path.of(txt),iterable);
+            Files.write(Path.of(txt), iterable);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static String selectFileType(OptionType type){
+    private static String selectFileType(OptionType type) {
         String txt = "";
-        switch (type){
+        switch (type) {
             case Size -> txt = SIZETXT;
             case Color -> txt = COLORTXT;
             case Manufacturer -> txt = MANUFACTURERTXT;

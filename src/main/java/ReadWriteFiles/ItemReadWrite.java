@@ -19,7 +19,7 @@ public class ItemReadWrite {
             Files.lines(Path.of(ITEMTXT))
                     .map(colorDetails -> colorDetails.split(","))
                     .forEach(line -> list.put(line[0],
-                            new Item(line[1],line[0])
+                            new Item(line[1], line[0])
                                     .setDateAdded(LocalDate.parse(line[2]))
                                     .setState(Boolean.getBoolean(line[3]))));
         } catch (IOException e) {
@@ -28,7 +28,7 @@ public class ItemReadWrite {
         return list;
     }
 
-    public static void saveFile(Map<String,Item> listToSave){
+    public static void saveFile(Map<String, Item> listToSave) {
 
         Iterable<String> iterable = listToSave.keySet()
                 .stream()
@@ -36,7 +36,7 @@ public class ItemReadWrite {
                 .toList();
 
         try {
-            Files.write(Path.of(ITEMTXT),iterable);
+            Files.write(Path.of(ITEMTXT), iterable);
         } catch (IOException e) {
             e.printStackTrace();
         }

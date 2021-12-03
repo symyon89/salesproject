@@ -21,6 +21,7 @@ public class Item {
             System.out.println(e.getMessage());
         }
     }
+
     public Item(String name, String sku) {
         this.name = name;
         this.sku = sku;
@@ -91,9 +92,11 @@ public class Item {
     public void changeSize(String size) {
         SizeList.getInstance().update(sku, size);
     }
+
     public String getSize() {
         return SizeList.getInstance().read(sku);
     }
+
     public void deleteSize() {
         SizeList.getInstance().delete(sku);
     }
@@ -111,7 +114,6 @@ public class Item {
     public String itemWriteToFile() {
         return sku + "," + name + "," + dateAdded + "," + isActive;
     }
-
 
 
 }

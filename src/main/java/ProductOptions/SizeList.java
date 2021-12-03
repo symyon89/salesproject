@@ -49,4 +49,9 @@ public class SizeList implements Option<String> {
             throw new InvalidSkuException();
         }
     }
+
+    @Override
+    public void saveChanges() {
+        OptionReadWrite.saveFile(sizeMap, OptionType.Size);
+    }
 }

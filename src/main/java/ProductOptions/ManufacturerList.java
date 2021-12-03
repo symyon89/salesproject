@@ -49,4 +49,9 @@ public class ManufacturerList implements Option<String> {
             throw new InvalidSkuException();
         }
     }
+
+    @Override
+    public void saveChanges() {
+        OptionReadWrite.saveFile(manufacturerMap, OptionType.Manufacturer);
+    }
 }

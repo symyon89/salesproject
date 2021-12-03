@@ -45,9 +45,13 @@ public class ColorList implements Option<String> {
     }
 
     private void checkIfSkuIsUnique(String sku) throws InvalidSkuException {
-        if (colorMap.containsKey(sku)){
+        if (colorMap.containsKey(sku)) {
             throw new InvalidSkuException();
         }
     }
 
+    @Override
+    public void saveChanges() {
+        OptionReadWrite.saveFile(colorMap, OptionType.Color);
+    }
 }

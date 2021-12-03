@@ -28,7 +28,7 @@ public class PriceReadWrite {
                             } catch (InvaildEndDateException | InvalidPriceException e) {
                                 System.out.println(e.getMessage());
                             }
-                        }else {
+                        } else {
                             try {
                                 list.put(line[0], new Price().setPrice(Double.parseDouble(line[1])));
                             } catch (InvalidPriceException e) {
@@ -42,15 +42,15 @@ public class PriceReadWrite {
         return list;
     }
 
-    public static void saveFile(Map<String,Price> listToSave){
+    public static void saveFile(Map<String, Price> listToSave) {
 
         Iterable<String> iterable = listToSave.keySet()
                 .stream()
-                .map(key -> key + "," +listToSave.get(key).getPriceToWriteOnFile())
+                .map(key -> key + "," + listToSave.get(key).getPriceToWriteOnFile())
                 .toList();
 
         try {
-            Files.write(Path.of(PRICETXT),iterable);
+            Files.write(Path.of(PRICETXT), iterable);
         } catch (IOException e) {
             e.printStackTrace();
         }
