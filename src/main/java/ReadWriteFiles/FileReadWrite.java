@@ -25,6 +25,7 @@ public class FileReadWrite {
         }
         return list;
     }
+
     public static void saveFile(Map<String,String> listToSave,OptionType type){
         String txt = selectFileType(type);
         Iterable<String> iterable = listToSave.keySet().stream().map(key -> key + "," +listToSave.get(key)).toList();
