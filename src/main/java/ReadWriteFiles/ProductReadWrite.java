@@ -16,7 +16,7 @@ public class ProductReadWrite {
         Map<Integer, Product> list = new HashMap<>();
         try {
             Files.lines(Path.of(PRODUCTTXT))
-                    .filter(String::isBlank)
+                    .filter(line -> !line.isBlank())
                     .map(details -> details.split(","))
                     .forEach(line -> list.put(Integer.parseInt(line[0]),
                             new Product().setName(line[1])
