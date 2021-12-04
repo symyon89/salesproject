@@ -19,9 +19,9 @@ public class ItemReadWrite {
             Files.lines(Path.of(ITEMTXT))
                     .map(colorDetails -> colorDetails.split(","))
                     .forEach(line -> list.put(line[0],
-                            new Item(line[1], line[0])
-                                    .setDateAdded(LocalDate.parse(line[2]))
-                                    .setState(Boolean.getBoolean(line[3]))));
+                            new Item(line[0])
+                                    .setDateAdded(LocalDate.parse(line[1]))
+                                    .setState(Boolean.getBoolean(line[2]))));
         } catch (IOException e) {
             e.printStackTrace();
         }

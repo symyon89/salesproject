@@ -5,13 +5,12 @@ import BussinessExceptions.InvalidSkuException;
 import java.time.LocalDate;
 
 public class Item {
-    private final String name;
-    private final String sku;
+    private String sku;
     private boolean isActive;
     private LocalDate dateAdded;
 
-    public Item(String name, String sku, Price price) {
-        this.name = name;
+    public Item(String sku, Price price) {
+
         this.sku = sku;
         this.dateAdded = LocalDate.now();
         this.isActive = true;
@@ -22,8 +21,7 @@ public class Item {
         }
     }
 
-    public Item(String name, String sku) {
-        this.name = name;
+    public Item(String sku) {
         this.sku = sku;
         this.dateAdded = LocalDate.now();
         this.isActive = true;
@@ -112,7 +110,7 @@ public class Item {
 
 
     public String itemWriteToFile() {
-        return sku + "," + name + "," + dateAdded + "," + isActive;
+        return sku + "," + dateAdded + "," + isActive;
     }
 
 
