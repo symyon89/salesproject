@@ -1,3 +1,3 @@
-summerthirt112,Summer shirt,2021-12-03,true
-salespants45,Summer pants,2021-12-03,true
-puma223,Summer snikers,2021-12-03,true
+summerthirt112,2021-12-03,true
+salespants45,2021-12-03,true
+puma223,2021-12-03,true

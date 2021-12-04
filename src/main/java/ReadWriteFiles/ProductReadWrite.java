@@ -31,7 +31,7 @@ public class ProductReadWrite {
 
         Iterable<String> iterable = listToSave.keySet()
                 .stream()
-                .map(key -> listToSave.get(key).textProductToWrite())
+                .map(key -> key + "," + listToSave.get(key).textProductToWrite())
                 .toList();
 
         try {
