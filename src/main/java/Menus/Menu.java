@@ -33,6 +33,7 @@ public class Menu {
             case 1 -> showProducts();
             default -> System.out.println("Exiting ...");
         }
+        System.out.println();
     }
 
     private void showProducts() {
