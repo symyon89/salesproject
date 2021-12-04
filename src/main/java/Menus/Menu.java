@@ -24,6 +24,7 @@ public class Menu {
 
     private void showOptions() {
         System.out.println("1.Show All Products");
+        System.out.println("2.Add Product");
         System.out.println("0.Exit");
         System.out.print("Choose option : ");
     }
@@ -31,13 +32,18 @@ public class Menu {
     private void actionOptions(int option) {
         switch (option) {
             case 1 -> showProducts();
-            default -> System.out.println("Exiting ...");
+            case 2 -> addProduct();
+            default -> System.out.println("Invalid option!");
         }
         System.out.println();
     }
 
     private void showProducts() {
         ProductList.getInstance().getList().forEach((id, product) -> System.out.println( (id + 1) + "." + product.textProductToWrite()));
+    }
+
+    private void addProduct() {
+        //TODO de completat in continuare
     }
 
     private void saveChanges() {
