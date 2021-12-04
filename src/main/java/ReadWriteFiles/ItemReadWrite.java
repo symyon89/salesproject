@@ -17,6 +17,7 @@ public class ItemReadWrite {
         Map<String, Item> list = new HashMap<>();
         try {
             Files.lines(Path.of(ITEMTXT))
+                    .filter(String::isBlank)
                     .map(colorDetails -> colorDetails.split(","))
                     .forEach(line -> list.put(line[0],
                             new Item(line[0])

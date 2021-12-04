@@ -18,6 +18,7 @@ public class PriceReadWrite {
         Map<String, Price> list = new HashMap<>();
         try {
             Files.lines(Path.of(PRICETXT))
+                    .filter(String::isBlank)
                     .map(colorDetails -> colorDetails.split(","))
                     .forEach(line -> {
                         if (line.length > 2) {

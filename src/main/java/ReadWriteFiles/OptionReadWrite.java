@@ -18,6 +18,7 @@ public class OptionReadWrite {
         Map<String, String> list = new HashMap<>();
         try {
             Files.lines(Path.of(txt))
+                    .filter(String::isBlank)
                     .map(details -> details.split(","))
                     .forEach(line -> list.put(line[0], line[1]));
         } catch (IOException e) {
