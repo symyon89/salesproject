@@ -1,6 +1,6 @@
-package ReadWriteFiles;
+package readwritefiles;
 
-import ProductPackage.Product;
+import productpackage.Product;
 
 import java.io.IOException;
 import java.nio.file.Files;

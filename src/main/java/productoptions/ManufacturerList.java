@@ -1,7 +1,7 @@
-package ProductOptions;
+package productoptions;
 
-import BussinessExceptions.InvalidSkuException;
-import ReadWriteFiles.OptionReadWrite;
+import bussinessexceptions.InvalidSkuException;
+import readwritefiles.OptionReadWrite;
 
 import java.util.HashMap;
 import java.util.Map;

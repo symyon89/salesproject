@@ -1,4 +1,4 @@
-package ProductPackage;
+package productpackage;
 
 import java.util.List;
 

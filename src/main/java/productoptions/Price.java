@@ -1,7 +1,7 @@
-package ProductOptions;
+package productoptions;
 
-import BussinessExceptions.InvaildEndDateException;
-import BussinessExceptions.InvalidPriceException;
+import bussinessexceptions.InvaildEndDateException;
+import bussinessexceptions.InvalidPriceException;
 
 import java.time.LocalDate;
 

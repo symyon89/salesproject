@@ -1,6 +1,6 @@
-package ReadWriteFiles;
+package readwritefiles;
 
-import ProductOptions.Item;
+import productoptions.Item;
 
 
 import java.io.IOException;

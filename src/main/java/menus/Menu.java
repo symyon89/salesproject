@@ -1,11 +1,11 @@
-package Menus;
+package menus;
 
-import ProductOptions.*;
-import ProductPackage.ProductList;
-import ReadWriteFiles.ItemReadWrite;
-import ReadWriteFiles.OptionReadWrite;
-import ReadWriteFiles.PriceReadWrite;
-import ReadWriteFiles.ProductReadWrite;
+import productoptions.*;
+import productpackage.ProductList;
+import readwritefiles.ItemReadWrite;
+import readwritefiles.OptionReadWrite;
+import readwritefiles.PriceReadWrite;
+import readwritefiles.ProductReadWrite;
 
 import java.util.Scanner;
 

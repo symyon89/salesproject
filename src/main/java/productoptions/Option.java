@@ -1,6 +1,6 @@
-package ProductOptions;
+package productoptions;
 
-import BussinessExceptions.InvalidSkuException;
+import bussinessexceptions.InvalidSkuException;
 
 import java.util.Map;
 

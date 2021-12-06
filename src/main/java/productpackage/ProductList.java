@@ -1,6 +1,6 @@
-package ProductPackage;
+package productpackage;
 
-import ReadWriteFiles.ProductReadWrite;
+import readwritefiles.ProductReadWrite;
 
 import java.util.HashMap;
 import java.util.Map;

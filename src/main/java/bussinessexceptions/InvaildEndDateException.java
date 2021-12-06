@@ -1,4 +1,4 @@
-package BussinessExceptions;
+package bussinessexceptions;
 
 public class InvaildEndDateException extends BussinessExceptions {
     public InvaildEndDateException() {

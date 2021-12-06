@@ -1,6 +1,8 @@
-package ReadWriteFiles;
+//TODO de impletemntat un design pattern
 
-import ProductOptions.OptionType;
+package readwritefiles;
+
+import productoptions.OptionType;
 
 import java.io.IOException;
 import java.nio.file.Files;

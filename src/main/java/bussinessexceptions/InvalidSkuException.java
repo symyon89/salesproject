@@ -1,4 +1,4 @@
-package BussinessExceptions;
+package bussinessexceptions;
 
 public class InvalidSkuException extends BussinessExceptions {
     public InvalidSkuException() {

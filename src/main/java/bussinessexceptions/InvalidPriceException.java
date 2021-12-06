@@ -1,4 +1,4 @@
-package BussinessExceptions;
+package bussinessexceptions;
 
 public class InvalidPriceException extends BussinessExceptions {
     public InvalidPriceException() {
