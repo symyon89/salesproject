@@ -9,12 +9,14 @@ public class Item {
     private String sku;
     private boolean isActive;
     private LocalDate dateAdded;
+    private int stock;
 
     public Item(String sku, Price price) {
 
         this.sku = sku;
         this.dateAdded = LocalDate.now();
         this.isActive = true;
+        this.stock = 1;
         try {
             PriceList.getInstance().create(sku, price);
         } catch (InvalidSkuException e) {
@@ -26,10 +28,16 @@ public class Item {
         this.sku = sku;
         this.dateAdded = LocalDate.now();
         this.isActive = true;
+        this.stock = 1;
     }
 
     public Item setState(boolean state) {
         this.isActive = state;
+        return this;
+    }
+
+    public Item setStock(int stock) {
+        this.stock = stock;
         return this;
     }
 
@@ -111,7 +119,7 @@ public class Item {
 
 
     public String itemWriteToFile() {
-        return sku + "," + dateAdded + "," + isActive;
+        return sku + "," + dateAdded + "," + isActive + "," + stock;
     }
 
 

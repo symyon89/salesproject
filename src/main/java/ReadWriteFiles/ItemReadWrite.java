@@ -22,7 +22,8 @@ public class ItemReadWrite {
                     .forEach(line -> list.put(line[0],
                             new Item(line[0])
                                     .setDateAdded(LocalDate.parse(line[1]))
-                                    .setState(Boolean.parseBoolean(line[2]))));
+                                    .setState(Boolean.parseBoolean(line[2]))
+                                    .setStock(Integer.parseInt(line[3]))));
         } catch (IOException e) {
             e.printStackTrace();
         }

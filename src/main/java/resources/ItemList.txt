@@ -1,3 +1,3 @@
-summerthirt112,2021-12-03,true
-salespants45,2021-12-03,true
-puma223,2021-12-03,true
+summerthirt112,2021-12-03,true,1
+salespants45,2021-12-03,true,2
+puma223,2021-12-03,true,3
