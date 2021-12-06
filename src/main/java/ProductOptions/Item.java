@@ -5,6 +5,7 @@ import BussinessExceptions.InvalidSkuException;
 import java.time.LocalDate;
 
 public class Item {
+    //TODO De adaugat stoc
     private String sku;
     private boolean isActive;
     private LocalDate dateAdded;
