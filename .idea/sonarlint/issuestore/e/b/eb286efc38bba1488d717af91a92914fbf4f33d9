@@ -1,0 +1,12 @@
+
+U
+java:S1118":Add a private constructor to hide the implicit public one.(áãäÉûÿÿÿÿ
+D
+java:S1121,".Extract the assignment out of this expression.(¼æÚá
+I
+java:S1121-".Extract the assignment out of this expression.(ÎòÄŠıÿÿÿÿ
+D
+java:S1121.".Extract the assignment out of this expression.(±½ìÓ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü½÷Î
+Z
+java:S2095"DUse try-with-resources or close this "Stream" in a "finally" clause.(åÁÅá

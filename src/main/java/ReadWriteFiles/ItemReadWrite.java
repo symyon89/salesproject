@@ -18,7 +18,7 @@ public class ItemReadWrite {
         try {
             Files.lines(Path.of(ITEMTXT))
                     .filter(line -> !line.isBlank())
-                    .map(colorDetails -> colorDetails.split(","))
+                    .map(details -> details.split(","))
                     .forEach(line -> list.put(line[0],
                             new Item(line[0])
                                     .setDateAdded(LocalDate.parse(line[1]))

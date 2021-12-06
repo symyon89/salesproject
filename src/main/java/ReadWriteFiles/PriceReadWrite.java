@@ -19,7 +19,7 @@ public class PriceReadWrite {
         try {
             Files.lines(Path.of(PRICETXT))
                     .filter(line -> !line.isBlank())
-                    .map(colorDetails -> colorDetails.split(","))
+                    .map(details -> details.split(","))
                     .forEach(line -> {
                         if (line.length > 2) {
                             try {
